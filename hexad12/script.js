@@ -122,7 +122,11 @@ document.getElementById('submit-btn').addEventListener('click', () => {
     // Display user type explanations
     const explanationContainer = document.getElementById('user-types-explanation');
     explanationContainer.innerHTML = Object.entries(scores)
-        .map(([type, score]) => `<p><strong>${type}:</strong> ${userTypeExplanations[type]}</p>`)
+        // Sort the entries by score in descending order
+        .sort(([, scoreA], [, scoreB]) => scoreB - scoreA)
+        // Map each sorted entry to an HTML paragraph
+        .map(([type, score]) => `<p><strong>${type} ${score}:</strong> ${userTypeExplanations[type]}</p>`)
+        // Join all paragraphs into a single string
         .join('');
 });
 

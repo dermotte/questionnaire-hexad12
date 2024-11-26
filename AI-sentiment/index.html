@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI in Game Projects Survey</title>
+    <!-- Include Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Paste the updated CSS here */
+        :root {
+            /* Pastel Blue Palette */
+            --pastel-blue: #a7c7e7;
+            --light-pastel-blue: #cce4f6;
+            --very-light-pastel-blue: #e0f0fb;
+            --pastel-blue-hover: #95b8e1;
+            --border-pastel-blue: #b3d7f5;
+            --text-dark: #2c3e50;
+        }
+
+        /* General Container Styling */
+        .container {
+            max-width: 800px;
+            background-color: var(--very-light-pastel-blue);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Title Styling */
+        h1 {
+            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Question Cards */
+        .card {
+            background-color: #ffffff; /* Keep card background white for contrast */
+            border: 1px solid var(--border-pastel-blue);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--pastel-blue-hover);
+        }
+
+        /* Likert Scale Styling */
+        .likert-scale .form-check {
+            flex: 1;
+            margin-right: 0;
+        }
+
+        .likert-scale .form-check:last-child {
+            margin-right: 0;
+        }
+
+        .likert-scale .form-check-label {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        /* Submit and Copy Buttons */
+        #submit-btn, #copy-btn {
+            width: 180px;
+            background-color: var(--pastel-blue);
+            border: none;
+            color: #ffffff;
+            transition: background-color 0.2s;
+        }
+
+        #submit-btn:hover, #copy-btn:hover {
+            background-color: var(--pastel-blue-hover);
+        }
+
+        /* Alert Styling */
+        .alert {
+            margin-top: 20px;
+            border-left: 5px solid var(--pastel-blue);
+        }
+
+        /* Result Display */
+        #result {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid var(--border-pastel-blue);
+            max-height: 300px;
+            overflow-y: auto;
+            color: var(--text-dark);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Free-Form Comment Styling */
+        textarea.form-control {
+            resize: vertical;
+            border-radius: 5px;
+            border: 1px solid var(--border-pastel-blue);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        textarea.form-control:focus {
+            border-color: var(--pastel-blue);
+            box-shadow: 0 0 5px rgba(167, 199, 231, 0.5);
+        }
+
+        /* Enhanced Radio Buttons */
+        .form-check-input:checked + .form-check-label {
+            font-weight: bold;
+            color: var(--pastel-blue);
+        }
+
+        /* Enhanced Radio Buttons Hover Effect */
+        .form-check-input:hover + .form-check-label {
+            color: var(--pastel-blue-hover);
+            cursor: pointer;
+        }
+
+        /* Focus Effect for Radio Buttons */
+        .form-check-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(167, 199, 231, 0.25);
+        }
+
+        /* Scrollbar Styling for Result Display */
+        #result::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #result::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        #result::-webkit-scrollbar-thumb {
+            background: var(--pastel-blue);
+            border-radius: 5px;
+        }
+
+        #result::-webkit-scrollbar-thumb:hover {
+            background: var(--pastel-blue-hover);
+        }
+
+        /* Button Active State */
+        #submit-btn:active, #copy-btn:active {
+            background-color: var(--pastel-blue-hover);
+            transform: translateY(1px);
+        }
+
+        /* Optional: Add subtle animations for smoother interactions */
+        button, .form-check-input {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">AI in Game Projects Survey</h1>
+        
+        
+        <!-- Questions Container -->
+        <form id="survey-form">
+            <div id="questions-container"></div>
+            
+            <!-- Alert Container -->
+            <div id="alert-container"></div>
+            <div class="d-flex justify-content-center mt-4">
+                <button type="button" id="submit-btn" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        
+        
+        <!-- Result Display -->
+        <div class="mt-5">
+            <h3 class="mb-3">Your Responses:</h3>
+            <pre id="result"></pre>
+            <div class="d-flex justify-content-center">
+                <button type="button" id="copy-btn" class="btn btn-secondary mt-2" style="display: none;">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include Bootstrap JS for alert functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Your JavaScript File -->
+    <script src="survey.js"></script>
+</body>
+</html>
